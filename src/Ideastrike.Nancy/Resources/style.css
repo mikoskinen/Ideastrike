@@ -1,44 +1,4 @@
-﻿#container { width: 880px;margin-left: auto;margin-right: auto;}
-.topbar .brand { 
-    background: url('/Resources/logo_small.png') no-repeat;
-    /* LIR @see http://www.kryogenix.org/code/browser/lir/ */
-    height:0;
-    overflow:hidden;
-    padding:57px 0 0;
-    width: 115px;
-}
-.topbar div > ul, .nav { margin: 5px 10px 0 0;}
-.topbar div > ul a, .nav a {
-    padding-top:14px;
-}
-.topbar form { margin-top: 10px; }
-.topbar h3 a { padding: 0px;}
-.topbar .fill{ background-color:#660000;
-               background-repeat:repeat-x;
-               background-image:-khtml-gradient(linear, left top, left bottom, from(#400000), to(#660000));
-               background-image:-moz-linear-gradient(top, #400000, #660000);
-               background-image:-ms-linear-gradient(top, #400000, #660000);
-               background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0%, #400000), color-stop(100%, #660000));
-               background-image:-webkit-linear-gradient(top, #400000, #660000);
-               background-image:-o-linear-gradient(top, #400000, #660000);
-               background-image:linear-gradient(top, #400000, #660000);
-               filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#400000', endColorstr='#660000', GradientType=0);
-               -webkit-box-shadow:0 1px 10px rgba(0, 0, 0, 0.25),inset 0 -1px 0 rgba(0, 0, 0, 0.1);
-               -moz-box-shadow:0 1px 10px rgba(0, 0, 0, 0.25),inset 0 -1px 0 rgba(0, 0, 0, 0.1);
-               box-shadow:0 1px 10px rgba(0, 0, 0, 0.25),inset 0 -1px 0 rgba(0, 0, 0, 0.1);}
-.topbar .fill .dropdown-menu  
-{
-                background-color:#660000;
-               background-repeat:repeat-x;
-               background-image:-khtml-gradient(linear, left top, left bottom, from(#660000), to(#400000));
-               background-image:-moz-linear-gradient(top, #660000, #400000);
-               background-image:-ms-linear-gradient(top, #660000, #400000);
-               background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0%, #660000), color-stop(100%, #400000));
-               background-image:-webkit-linear-gradient(top, #660000, #400000);
-               background-image:-o-linear-gradient(top, #660000, #400000);
-               background-image:linear-gradient(top, #660000, #400000);
-               filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#660000', endColorstr='#400000', GradientType=0);}
-textarea {width: 350px;height: 200px;}
+﻿textarea {width: 350px;height: 200px;}
 label { margin-right: 15px;}
 #comments, #ideas { list-style-type: none;margin: 0px;padding: 0px; margin-left:-10px;}
 #comments li {margin-left: 0px; margin-bottom: 25px;}
@@ -49,12 +9,6 @@ background-color: #eee;
 }
 body {
 padding-top: 40px; /* 40px to make the container go all the way to the bottom of the topbar */
-}
-.container > footer p {
-text-align: center; /* center align it with the container */
-}
-.container {
-width: 820px; /* downsize our container to make the content feel a bit tighter and more cohesive. NOTE: this removes two full columns from the grid, meaning you only go to 14 columns and not 16. */
 }
 
 /* The white background content wrapper */
