@@ -4,9 +4,8 @@
 @using System.Linq
 @inherits Nancy.ViewEngines.Razor.NancyRazorViewBase
 @{
-    Layout = "Views/Shared/Layout.cshtml";
+    Layout = "Views/Shared/DifferentLayout.cshtml";
 }
-
 @section HeadContent
 {
     <link href="@Url.Content("~/Resources/jquery.fileupload-ui.css")" rel="stylesheet" />
@@ -24,7 +23,7 @@
 }
 <h1>@Model.Title</h1>
 @MarkdownHelper.Markdown(Model.WelcomeMessage)
-<ul class="pills">
+<ul class="nav nav-pills">
     <li @if (Model.Selected == SelectedTab.Popular)
         {@:class="active"
         }
@@ -40,32 +39,36 @@
 <ul id="ideas">
     @foreach (Idea i in Model.Ideas)
     {
-        <li>
-            <div class="pull-left sidebox">
-                <form>
-                <div class="voteinfo">
-                    <h3 class="votecount @i.Id">@i.Votes.Sum(v => v.Value)</h3>
-                    votes
-                </div>
-                @if (Model.IsLoggedIn)
-                {
-                    <button type="button" class="btn vote" data-id="@i.Id" data-voted="@i.UserHasVoted" >
-                        @if (i.UserHasVoted)
-                        { 
-                            @:unvote
-                        }
-                        else
-                        { 
-                            @: vote
-                        }</button>
-                }
-                </form>
+        <div class="row">
+            <div class="span12">
+                <li>
+                    <div class="pull-left sidebox">
+                        <form>
+                            <div class="voteinfo">
+                                <h3 class="votecount @i.Id">@i.Votes.Sum(v => v.Value)</h3>
+                                votes
+                            </div>
+                            @if (Model.IsLoggedIn)
+                            {
+                                <button type="button" class="btn vote" data-id="@i.Id" data-voted="@i.UserHasVoted" >
+                                    @if (i.UserHasVoted)
+                                    { 
+                                        @:unvote
+                                    }
+                                    else
+                                    { 
+                                        @: vote
+                                    }</button>
+                            }
+                        </form>
+                    </div>
+                    <h3 class="ideaheader">
+                        <a href="/idea/@i.Id">@i.Title</a> <span class="label @StatusColorHelper.ColorClass(i.Status)">@i.Status</span></h3>
+                    <div class="ideadate">@FriendlyTimeHelper.Parse(i.Time)</div>
+                    <div class="ideadesc" style="margin-left: 85px;">@MarkdownHelper.Markdown(i.Description)</div>
+                </li>
             </div>
-            <h3 class="ideaheader"><a href="/idea/@i.Id">@i.Title</a> <span class="label @StatusColorHelper.ColorClass(i.Status)">@i.Status</span></h3>
-            <div class="ideadate">@FriendlyTimeHelper.Parse(i.Time)</div>
-            <div class="ideadesc" style="margin-left:85px;">@MarkdownHelper.Markdown(i.Description)</div>
-            <div class="clearfix"> </div>
-        </li> 
+        </div>
     }
 </ul>
 @section PageScript {
