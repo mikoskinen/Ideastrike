@@ -3,7 +3,7 @@
 @using Ideastrike.Nancy.Helpers
 @using Ideastrike.Nancy.Modules
 @{
-    Layout = "Views/Shared/Layout.cshtml";
+    Layout = "Views/Shared/DifferentLayout.cshtml";
 }
 
 @{ var idea = Model.Idea; }
@@ -28,7 +28,7 @@
         }
         </form>
     </div>
-    <div class="sidebox" style="margin-left:10px;">
+@*    <div class="sidebox" style="margin-left:10px;">
         <div>
             <!-- TODO: get URL for this page rather than description -->
             <a href="https://twitter.com/share" 
@@ -42,19 +42,20 @@
             data-show-faces="true">
         </div>
     </div>
-</div>
+*@</div>
 <h1 style="margin-bottom:0px;">@idea.Title <span class="label @StatusColorHelper.ColorClass(idea.Status)">@idea.Status</span></h1>
 <div class="ideadesc">
     @idea.Description
 </div>
 
 <div class="ideadesc gravatarsmall"><img src="@idea.GravatarUrl" /> <a href="">@idea.Author.UserName</a> <span class="ideadate">@FriendlyTimeHelper.Parse(idea.Time)</span>
-@if (idea.Author.UserName == Model.UserName)
+@*@if (idea.Author.UserName == Model.UserName)
 { 
     <a href="/idea/@idea.Id/edit">Edit</a>
-}</div>
+}
+*@</div>
 
-<hr />
+@*<hr />
 
 @if (idea.Images != null && idea.Images.Count >0)
 {
@@ -68,9 +69,9 @@
         </p>
     </div>
     <div style="clear: both;"></div>
-}
+}*@
 
-@if (idea.Features.Count > 0)
+@*@if (idea.Features.Count > 0)
 { 
     <div class="features">
         <h3>Features</h3>
@@ -136,7 +137,7 @@ else
             Add Feature</button>
         </form>
     </div>
-}
+}*@
 <hr />
 @if (idea.Activities.Count > 0)
 { 
@@ -158,21 +159,20 @@ else
 @if (Model.IsLoggedIn)
 {
     <div class="expander" data-element="#add-comment">
-        <h5 class="hoverheader">Leave a comment</h5>
+        <h5 class="btn btn-large">Leave a comment</h5>
     </div>
     <div id="add-comment" class="hide-on-start add-comment">
         <form action="/comment/@idea.Id/add" method="POST">
-        <label for="comment">leave a comment</label>
         <div class="input">
-            <div class="options">
+@*            <div class="options">
                 <button type="button" disabled="disabled" id="edit-new-comment" class="btn edit"
                     data-other="#preview-new-comment" data-editor="#new-comment" data-view="#new-comment-view">Edit</button>
                 <button type="button" id="preview-new-comment" class="btn preview" data-other="#edit-new-comment"
                     data-editor="#new-comment" data-view="#new-comment-view">Preview</button>
             </div>
-            <textarea id="new-comment" name="comment"></textarea><br />
-            <span class="help-block">You can use <a href="http://daringfireball.net/projects/markdown/syntax">Markdown</a>!</span>
-            <div id="new-comment-view">
+*@            <textarea id="new-comment" name="comment"></textarea><br />
+@*            <span class="help-block">You can use <a href="http://daringfireball.net/projects/markdown/syntax">Markdown</a>!</span>
+*@            <div id="new-comment-view">
             </div>
         </div>
         <br />

@@ -55,6 +55,10 @@ border: 0;
     text-align: center;
    
 }
+.ideaitem {
+    margin-bottom: 20px;   
+}
+
 .sidebox .voteinfo {  background: #F3F3F3;
     border: 1px solid #E4E4E4;
     -webkit-border-radius: 6px;
@@ -63,7 +67,7 @@ border: 0;
     border-radius: 6px;margin: 10px;margin-bottom: 5px;}
 .voteinfo h3 { line-height: 1em;}
 .sidebox form button { width: 65px;height: 25px;}
-.ideaheader { padding-top: 16px;line-height: 1em;}
+.ideaheader { padding-top: 10px;line-height: 1em;}
 .ideadate { font-size: 0.8em;text-transform: uppercase;}
 .ideadesc {  color: black;}
 .hoverheader:hover{ color : #660000;}

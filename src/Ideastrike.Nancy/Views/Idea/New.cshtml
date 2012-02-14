@@ -4,12 +4,10 @@
 }
 <div class="row">
     <div class="span8">
-    
-            <div class="fill">
+        <div class="fill">
             @{
                 var displayError = Model.Errors ? "block" : "none";
             }
-
             <div class="alert-message error" style="display: @displayError">
                 <a class="close" href="#">&times;</a>
                 <p>
@@ -17,9 +15,7 @@
                 </p>
             </div>
         </div>
-
         <form class="form-horizontal" action="/idea/new" method="POST">
-        <fieldset>
             <legend>Submit a new idea</legend>
             <div class="control-group">
                 <label class="control-label" for="Title">
@@ -47,7 +43,7 @@
                     </div>
                 </div>
             </div>
-            <div class="control-group">
+            @*            <div class="control-group">
                 <label for="Images">
                     Images</label>
                 <div class="controls">
@@ -93,11 +89,11 @@
                     </div>
                 </div>
             </div>
+*@
             <div class="form-actions">
                 <button type="submit" class="btn primary" id="submitButton">
                     Submit</button>
             </div>
-        </fieldset>
         </form>
     </div>
     <div class="span4">

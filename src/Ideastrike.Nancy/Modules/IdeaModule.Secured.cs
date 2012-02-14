@@ -48,6 +48,9 @@ namespace Ideastrike.Nancy.Modules
                 if (idea == null)
                     return View["404"];
 
+                if ((idea.Author.UserName != Context.CurrentUser.UserName))
+                    return View["404"];
+
                 var m = Context.Model(string.Format("Edit Idea: '{0}' - {1}", idea.Title, _settings.Title));
                 m.PopularIdeas = _ideas.GetAll();
                 m.Idea = idea;
@@ -132,6 +135,8 @@ namespace Ideastrike.Nancy.Modules
                 //    .Where(k => k.StartsWith("imageId"))
                 //    .Select(k => _imageRepository.Get(Convert.ToInt32(form[k])))
                 //    .ToList(); //is there a way to do this using Nancy?
+
+                //idea.Votes.Add();
                 if (idea.Votes.Any(u => u.UserId == user.Id))
                     idea.UserHasVoted = true;
 

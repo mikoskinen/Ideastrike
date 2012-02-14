@@ -22,7 +22,9 @@
     </div>
 }
 <h1>@Model.Title</h1>
-@MarkdownHelper.Markdown(Model.WelcomeMessage)
+<blockquote>
+    <p>@MarkdownHelper.Markdown(Model.WelcomeMessage)</p>
+</blockquote>
 <ul class="nav nav-pills">
     <li @if (Model.Selected == SelectedTab.Popular)
         {@:class="active"
@@ -41,25 +43,25 @@
     {
         <div class="row">
             <div class="span12">
-                <li>
+                <li class="ideaitem">
                     <div class="pull-left sidebox">
                         <form>
-                            <div class="voteinfo">
-                                <h3 class="votecount @i.Id">@i.Votes.Sum(v => v.Value)</h3>
-                                votes
-                            </div>
-                            @if (Model.IsLoggedIn)
-                            {
-                                <button type="button" class="btn vote" data-id="@i.Id" data-voted="@i.UserHasVoted" >
-                                    @if (i.UserHasVoted)
-                                    { 
-                                        @:unvote
+                        <div class="voteinfo">
+                            <h3 class="votecount @i.Id">@i.Votes.Sum(v => v.Value)</h3>
+                            votes
+                        </div>
+                        @if (Model.IsLoggedIn)
+                        {
+                            <button type="button" class="btn vote" data-id="@i.Id" data-voted="@i.UserHasVoted" >
+                                @if (i.UserHasVoted)
+                                { 
+                                    @:unvote
                                     }
-                                    else
-                                    { 
-                                        @: vote
-                                    }</button>
-                            }
+                                else
+                                { 
+                                    @: vote
+                                                                    }</button>
+                        }
                         </form>
                     </div>
                     <h3 class="ideaheader">
